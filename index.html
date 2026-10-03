@@ -52,16 +52,32 @@
   <script src="script.js" defer></script>
   <!-- Visitor counts, no cookies. GoatCounter (https://tanz1230.goatcounter.com) shows countries and
        referrers; Umami (https://cloud.umami.is) adds cities. Neither counts local copies of the page.
-       To stop counting your own visits, open the site once with #toggle-goatcounter at the end of
-       the address (once per browser); the small script below keeps Umami in step with GoatCounter. -->
-  <script data-goatcounter="https://tanz1230.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+       To stop counting your own visits, open the site with #ignore-me at the end of the address,
+       once in each browser (safe to repeat); #count-me undoes it. -->
   <script>
-    try {
-      var skipCount = localStorage.getItem("skipgc") === "t";
-      if (location.hash === "#toggle-goatcounter") skipCount = !skipCount;
-      if (skipCount) localStorage.setItem("umami.disabled", "1"); else localStorage.removeItem("umami.disabled");
-    } catch (e) {}
+    (function () {
+      function setCounting(tag, later) {
+        if (tag !== "#ignore-me" && tag !== "#count-me") return;
+        var off = tag === "#ignore-me";
+        try {
+          if (off) { localStorage.setItem("skipgc", "t"); localStorage.setItem("umami.disabled", "1"); }
+          else { localStorage.removeItem("skipgc"); localStorage.removeItem("umami.disabled"); }
+          history.replaceState(null, "", location.pathname + location.search);
+        } catch (e) { return; }
+        var note = off ? "Visits from this browser won't be counted." : "Visits from this browser will be counted again.";
+        if (later) window.addEventListener("load", function () { alert(note); }); else alert(note);
+      }
+      setCounting(location.hash, true);
+      window.addEventListener("hashchange", function () { setCounting(location.hash, false); });
+      // GoatCounter's own #toggle-goatcounter switch: keep Umami in step with it.
+      try {
+        var skip = localStorage.getItem("skipgc") === "t";
+        if (location.hash === "#toggle-goatcounter") skip = !skip;
+        if (skip) localStorage.setItem("umami.disabled", "1"); else localStorage.removeItem("umami.disabled");
+      } catch (e) {}
+    })();
   </script>
+  <script data-goatcounter="https://tanz1230.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ca39240a-e9c5-4d73-8e5a-ea0f0c4fe4b4" data-domains="tanz1230.github.io"></script>
 </head>
 <body>
