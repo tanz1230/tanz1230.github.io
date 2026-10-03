@@ -791,7 +791,8 @@ p [lang="zh-Hans"] { line-height: 1; }  /* keep the line spacing even inside run
 }
 
 @media (max-width: 559px) {
-  .frame { aspect-ratio: 3 / 4; min-height: 0; }
+  /* Square like tablets, short enough that the introduction shows on the first screen */
+  .frame { min-height: 0; }
 
   /* Phones: the portrait sits beside the opening line, about the same height;
      the bio and links run full width below */

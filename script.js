@@ -264,7 +264,10 @@
   var SHOTS = {
     wide: { pos: [-5, -44, 7], yaw: -5, pitch: -5, fov: 56, skyline: 0.5 },
     mid: { pos: [-4.5, -40, 7.8], yaw: -4, pitch: -6.5, fov: 58, skyline: 0.5 },
-    tall: { pos: [0, -30, 9], yaw: 0, pitch: -20, fov: 50, skyline: 0.28 }
+    tall: { pos: [0, -30, 9], yaw: 0, pitch: -20, fov: 50, skyline: 0.28 },
+    // The square card on phones: drawn a little smaller and lower, so the scene
+    // fits between the invitation at the top and the name at the bottom
+    square: { pos: [0, -30, 9], yaw: 0, pitch: -20, fov: 74, skyline: 0.28, cy: 0.525 }
   };
 
   function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
@@ -305,7 +308,7 @@
     var n = Math.hypot(f[0], f[1]);
     var r = [f[1] / n, -f[0] / n, 0];
     var u = [r[1] * f[2] - r[2] * f[1], r[2] * f[0] - r[0] * f[2], r[0] * f[1] - r[1] * f[0]];
-    return { p: shot.pos, f: f, r: r, u: u, focal: w / 2 / Math.tan(shot.fov * Math.PI / 360), cx: w / 2, cy: h / 2 };
+    return { p: shot.pos, f: f, r: r, u: u, focal: w / 2 / Math.tan(shot.fov * Math.PI / 360), cx: w / 2, cy: h * (shot.cy || 0.5) };
   }
 
   // World point to screen. Returns false for points behind the camera.
@@ -650,7 +653,8 @@
   function drawScene(ctx, w, h, dpr, t, colors, specks, lights) {
     if (lights === undefined) lights = 1;   // 0..1: how far the night lights have come on
     var aspect = w / h;
-    var shot = aspect < 1.2 ? SHOTS.tall : aspect < 2 ? SHOTS.mid : SHOTS.wide;
+    var phoneSquare = aspect > 0.9 && aspect < 1.2 && w / dpr < 560;
+    var shot = phoneSquare ? SHOTS.square : aspect < 1.2 ? SHOTS.tall : aspect < 2 ? SHOTS.mid : SHOTS.wide;
     var cam = camera(shot, w, h);
     var p = { x: 0, y: 0, d: 0 };
     var q = { x: 0, y: 0, d: 0 };
