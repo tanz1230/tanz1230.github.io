@@ -50,10 +50,19 @@
     document.documentElement.setAttribute("data-theme", theme);
   </script>
   <script src="script.js" defer></script>
-  <!-- Visitor counts (no cookies); dashboard at https://tanz1230.goatcounter.com. Local copies of
-       the page are never counted. To stop counting your own visits, open the site once with
-       #toggle-goatcounter at the end of the address (once per browser). -->
+  <!-- Visitor counts, no cookies. GoatCounter (https://tanz1230.goatcounter.com) shows countries and
+       referrers; Umami (https://cloud.umami.is) adds cities. Neither counts local copies of the page.
+       To stop counting your own visits, open the site once with #toggle-goatcounter at the end of
+       the address (once per browser); the small script below keeps Umami in step with GoatCounter. -->
   <script data-goatcounter="https://tanz1230.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  <script>
+    try {
+      var skipCount = localStorage.getItem("skipgc") === "t";
+      if (location.hash === "#toggle-goatcounter") skipCount = !skipCount;
+      if (skipCount) localStorage.setItem("umami.disabled", "1"); else localStorage.removeItem("umami.disabled");
+    } catch (e) {}
+  </script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="ca39240a-e9c5-4d73-8e5a-ea0f0c4fe4b4" data-domains="tanz1230.github.io"></script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
