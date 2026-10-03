@@ -772,10 +772,10 @@ p [lang="zh-Hans"] { line-height: 1; }  /* keep the line spacing even inside run
       transparent 36%);
   }
 
-  .intro,
   .section { grid-template-columns: minmax(0, 1fr); }
 
-  .portrait { max-width: 120px; margin-bottom: 28px; }
+  /* The portrait keeps a narrow column beside the text rather than a row of its own */
+  .intro { grid-template-columns: clamp(120px, 18vw, 156px) minmax(0, 1fr); }
 
   /* The path moves into the left margin */
   .path::before,
@@ -792,6 +792,22 @@ p [lang="zh-Hans"] { line-height: 1; }  /* keep the line spacing even inside run
 
 @media (max-width: 559px) {
   .frame { aspect-ratio: 3 / 4; min-height: 0; }
+
+  /* Phones: the portrait sits beside the opening line, about the same height;
+     the bio and links run full width below */
+  .intro {
+    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-areas: "photo lede" "bio bio" "links links";
+    column-gap: 18px;
+    row-gap: 18px;
+    align-items: center;
+  }
+  .intro__text { display: contents; }
+  .portrait { grid-area: photo; }
+  .intro__text > .lede { grid-area: lede; font-size: 1.1875rem; }
+  .intro__text > .bio { grid-area: bio; }
+  .intro__text > .links { grid-area: links; }
+  @media (max-width: 374px) { .intro__text > .lede { font-size: 1.125rem; } }
 
   .bar__inner { gap: 16px; }
   .brand__name { display: none; }
