@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tianheng Zhu 朱天恒</title>
+  <meta name="description" content="Tianheng Zhu (朱天恒), PhD student at Purdue University working on autonomous vehicle simulation, cooperative 3D perception, and connected and automated vehicles.">
+  <meta name="theme-color" content="#f4f3f0">
+
+  <!-- Link previews in Slack, LinkedIn and messages. Add og:image (1200×630) once you have one. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tianheng Zhu 朱天恒">
+  <meta property="og:description" content="PhD student at Purdue University working on autonomous vehicle simulation, cooperative 3D perception, and connected and automated vehicles.">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Jost:wght@300..600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap">
+  <!-- Chinese serif, trimmed to the three characters of the name (朱天恒) so it stays tiny -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&text=%E6%9C%B1%E5%A4%A9%E6%81%92&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    /* Light by default on every visit; a choice made earlier in this session wins.
+       Applied before the first paint. (Older versions saved the choice for good; clear that.) */
+    var theme = "light";
+    try { var saved = sessionStorage.getItem("site-theme"); if (saved === "light" || saved === "dark") theme = saved; } catch (e) {}
+    try { localStorage.removeItem("site-theme"); localStorage.removeItem("theme"); } catch (e) {}
+    document.documentElement.setAttribute("data-theme", theme);
+  </script>
+  <script src="script.js" defer></script>
+  <!-- Visitor counts (no cookies); dashboard at https://tanz1230.goatcounter.com. Local copies of
+       the page are never counted. To stop counting your own visits, open the site once with
+       #toggle-goatcounter at the end of the address (once per browser). -->
+  <script data-goatcounter="https://tanz1230.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="bar" id="bar">
+    <div class="wrap bar__inner">
+      <a class="brand" href="#top">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <ellipse class="mark__ring" cx="16" cy="22.5" rx="14" ry="3.4"/>
+          <ellipse class="mark__ring" cx="16" cy="22.5" rx="8.2" ry="1.9"/>
+          <rect class="mark__car" x="13" y="20.6" width="6" height="3" rx="1"/>
+          <circle class="mark__drone" cx="16" cy="8" r="2.3"/>
+        </svg>
+        <span class="brand__name">Tianheng Zhu</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#publications" aria-label="Publications">Pub<span class="nav__rest">lications</span></a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.25"/><path d="M10 2.75a7.25 7.25 0 0 1 0 14.5z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ============ INTRO ============ -->
+    <section class="wrap hero" id="top" aria-labelledby="name">
+      <div class="frame">
+        <canvas class="frame__scene" aria-hidden="true"></canvas>
+        <!-- Invitation to the dark theme; shown until the visitor picks a theme.
+             In the visitor's evening, script.js adds a line saying so. -->
+        <button class="frame__hint" id="night-hint" type="button" hidden>
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.25"/><path d="M10 2.75a7.25 7.25 0 0 1 0 14.5z"/></svg>
+          <span><span class="frame__hint-when"></span>Switch on the city lights</span>
+        </button>
+        <div class="frame__text">
+          <h1 class="name" id="name"><span>Tianheng</span> <span>Zhu</span></h1>
+          <p class="role"><span>PhD Student</span><span class="sep" aria-hidden="true">/</span><span>Purdue University</span></p>
+          <ul class="focus" aria-label="Research focus">
+            <li>Autonomous Vehicle Simulation</li>
+            <li>Cooperative 3D Perception</li>
+            <li>Connected and Automated Vehicles</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="intro">
+        <figure class="portrait">
+          <img src="photo.jpg" alt="Portrait of Tianheng Zhu" width="600" height="900">
+        </figure>
+
+        <div class="intro__text">
+          <p class="lede">Building toward cooperative intelligence for autonomous systems, where heterogeneous sensing across agents becomes shared understanding and coordinated action.</p>
+          <p class="bio">I’m a PhD student in Transportation and Infrastructure System Engineering at Purdue University, advised by <a href="https://engineering.purdue.edu/CARTLab/people">Prof. Yiheng Feng</a>. Before that, I earned my BS in Transportation Engineering at Tongji University in Shanghai. My Chinese name is <span lang="zh-Hans">朱天恒</span>: <span lang="zh-Hans">天</span>&nbsp;<i>sky</i>, <span lang="zh-Hans">恒</span>&nbsp;<i>persistence</i>.</p>
+          <ul class="links">
+            <li><a href="mailto:zhu1230@purdue.edu">Email</a></li>
+            <li><a href="https://scholar.google.com/citations?user=cL8f_wgAAAAJ">Google Scholar</a></li>
+            <li><a href="https://github.com/tanz1230">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="path" id="path">
+
+        <!-- ============ NEWS: keep the latest four to six ============ -->
+        <section class="section" id="news" aria-labelledby="news-h">
+          <h2 class="section__label" id="news-h">News</h2>
+          <div class="section__body">
+            <ol class="news">
+              <li><time class="date" datetime="2026-09">Sep 2026</time><p>AGI-Coop and <a href="https://arxiv.org/abs/2609.06819">Drones as Annotators</a> accepted at the TRB Annual Meeting 2027.</p></li>
+              <li><time class="date" datetime="2026-09">Sep 2026</time><p>Our paper “<a href="https://doi.org/10.1016/j.trc.2026.106031">Empowering Microscopic Traffic Simulators with Realistic Perception using Surrogate Sensor Models</a>” is out in <cite>Transportation Research Part C</cite>.</p></li>
+              <li><time class="date" datetime="2026-09">Sep 2026</time><p>Invited talk at the <a href="https://i24motion.org/camp2026">Trajectory Data Camp</a>, IEEE ITSC 2026, in Naples, Italy.</p></li>
+              <li><time class="date" datetime="2026-08">Aug 2026</time><p>Received an IEEE ITSC Student Travel Grant.</p></li>
+              <li><time class="date" datetime="2026-05">May 2026</time><p>Our paper “<a href="https://arxiv.org/abs/2609.27143">A Systematic Evaluation of Infrastructure-Based Radar System for Highway Traffic Monitoring</a>” is accepted at IEEE ITSC 2026.</p></li>
+              <li><time class="date" datetime="2026-01">Jan 2026</time><p>Our paper “<a href="https://doi.org/10.1016/j.trc.2026.105522">Integrated Optimization for Vehicle Trajectory Reconstruction under Cooperative Perception Environment</a>” is out in <cite>Transportation Research Part C</cite>.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ============ PUBLICATIONS: papers, newest first; the year shows once per year ============
+             Each entry: title, authors, venue, a one-sentence intro, then links.
+             To add a link, put another <li><a href="URL">Code</a></li> in the entry's "actions" list.
+             A demo video opens in place under its entry: copy the Demo button and the "demo" panel
+             from the Empowering entry, and give the panel a new id. Set the video's width and height
+             to the file's own, so its panel keeps that shape while it loads. Add the class
+             "demo--light" when the video has a light background. -->
+        <section class="section" id="publications" aria-labelledby="publications-h" data-nav="publications">
+          <h2 class="section__label" id="publications-h">Publications</h2>
+          <div class="section__body">
+            <ol class="pubs">
+              <li class="pub">
+                <span class="pub__year">2026</span>
+                <div class="pub__main">
+                  <h3 class="pub__title">AGI-Coop: A Real World Air-Ground-Infrastructure Cooperative Perception Dataset</h3>
+                  <p class="pub__authors"><span class="me">Tianheng Zhu</span>, Yumeng Bai, Zhenhao Wang, …, and Yiheng Feng</p>
+                  <p class="pub__venue">Accepted at the <cite>TRB Annual Meeting 2027</cite></p>
+                  <p class="pub__desc">The first real-world dataset for air-ground-infrastructure (AGI) cooperative perception.</p>
+                </div>
+              </li>
+              <li class="pub">
+                <span class="pub__year"></span>
+                <div class="pub__main">
+                  <h3 class="pub__title"><a href="https://arxiv.org/abs/2609.06819">Drones as Annotators: Amodal 3D Auto-Labeling for Ground LiDAR with Aerial Priors</a></h3>
+                  <p class="pub__authors"><span class="me">Tianheng Zhu</span>, Zhenhao Wang, and Yiheng Feng</p>
+                  <p class="pub__venue">Accepted at the <cite>TRB Annual Meeting 2027</cite></p>
+                  <p class="pub__desc">A drone-assisted, training-free framework that exploits the complementary strengths of ground LiDAR and aerial cameras for amodal 3D auto-labeling.</p>
+                  <ul class="actions"><li><a href="https://arxiv.org/abs/2609.06819">Paper</a></li><li><button type="button" aria-expanded="false" aria-controls="demo-daa">Demo</button></li></ul>
+                  <div class="demo demo--light" id="demo-daa" hidden>
+                    <video src="daa-demo.mp4" width="1280" height="720" controls muted playsinline preload="none" aria-label="Drones as Annotators demo video"><a href="daa-demo.mp4">Download the demo video</a></video>
+                  </div>
+                </div>
+              </li>
+              <li class="pub">
+                <span class="pub__year"></span>
+                <div class="pub__main">
+                  <h3 class="pub__title"><a href="https://doi.org/10.1016/j.trc.2026.106031">Empowering Microscopic Traffic Simulators with Realistic Perception using Surrogate Sensor Models</a></h3>
+                  <p class="pub__authors"><span class="me">Tianheng Zhu</span> and Yiheng Feng</p>
+                  <p class="pub__venue"><cite>Transportation Research Part C: Emerging Technologies</cite></p>
+                  <p class="pub__desc">A surrogate sensor model that enables realistic perception simulation for large-scale AV deployments with minimal computational overhead.</p>
+                  <ul class="actions"><li><a href="https://doi.org/10.1016/j.trc.2026.106031">Paper</a></li><li><a href="https://github.com/Purdue-CART-Lab/MIDAR">Code</a></li><li><button type="button" aria-expanded="false" aria-controls="demo-midar">Demo</button></li></ul>
+                  <div class="demo" id="demo-midar" hidden>
+                    <video src="midar-demo.mp4" width="1920" height="1080" controls muted playsinline preload="none" aria-label="MIDAR demo video"><a href="midar-demo.mp4">Download the demo video</a></video>
+                  </div>
+                </div>
+              </li>
+              <li class="pub">
+                <span class="pub__year"></span>
+                <div class="pub__main">
+                  <h3 class="pub__title"><a href="https://arxiv.org/abs/2609.27143">A Systematic Evaluation of Infrastructure-Based Radar System for Highway Traffic Monitoring</a></h3>
+                  <p class="pub__authors"><span class="me">Tianheng Zhu</span>, Woei-chyi Chang, Alamss Riaz, Sogand Hasanzadeh, and Yiheng Feng</p>
+                  <p class="pub__venue"><cite>IEEE 29th International Conference on Intelligent Transportation Systems (ITSC 2026)</cite></p>
+                  <p class="pub__desc">A dual-modality dataset, DRaT (Drone and Radar Trajectories), for evaluating radar-based highway traffic monitoring against drone-derived ground truth.</p>
+                  <ul class="actions"><li><a href="https://arxiv.org/abs/2609.27143">Paper</a></li><li><a href="https://zenodo.org/records/20171110">Data</a></li><li><button type="button" aria-expanded="false" aria-controls="demo-radar">Demo</button></li></ul>
+                  <div class="demo" id="demo-radar" hidden>
+                    <video src="radar-demo.mp4" width="1280" height="708" controls muted playsinline preload="none" aria-label="Highway radar demo video"><a href="radar-demo.mp4">Download the demo video</a></video>
+                  </div>
+                </div>
+              </li>
+              <li class="pub">
+                <span class="pub__year"></span>
+                <div class="pub__main">
+                  <h3 class="pub__title"><a href="https://doi.org/10.1016/j.trc.2026.105522">Integrated Optimization for Vehicle Trajectory Reconstruction under Cooperative Perception Environment</a></h3>
+                  <p class="pub__authors"><span class="me">Tianheng Zhu</span>, Wangzhi Li, and Yiheng Feng</p>
+                  <p class="pub__venue"><cite>Transportation Research Part C: Emerging Technologies</cite></p>
+                  <p class="pub__desc">An integrated MILP model that reconstructs complete vehicle trajectories from cooperative perception data at extremely low CAV penetration rates.</p>
+                  <ul class="actions"><li><a href="https://doi.org/10.1016/j.trc.2026.105522">Paper</a></li><li><a href="https://github.com/Purdue-CART-Lab/CP-TrajRecon-Opt">Code</a></li></ul>
+                </div>
+              </li>
+              <li class="pub">
+                <span class="pub__year">2025</span>
+                <div class="pub__main">
+                  <h3 class="pub__title"><a href="https://www.usenix.org/conference/vehiclesec25/presentation/li-wangzhi">Learning Adversarial Attacks on Adaptive Traffic Signal Control Systems Under Cooperative Perception</a></h3>
+                  <p class="pub__authors">Wangzhi Li, <span class="me">Tianheng Zhu</span>, and Yiheng Feng</p>
+                  <p class="pub__venue"><cite>USENIX VehicleSec 2025</cite></p>
+                  <p class="pub__desc">Learns attacks that mislead adaptive traffic signal control by manipulating sensor data sharing messages (SDSMs) sent by CAVs.</p>
+                  <ul class="actions"><li><a href="https://www.usenix.org/conference/vehiclesec25/presentation/li-wangzhi">Paper</a></li></ul>
+                </div>
+              </li>
+              <li class="pub">
+                <span class="pub__year"></span>
+                <div class="pub__main">
+                  <h3 class="pub__title"><a href="https://doi.org/10.1109/TITS.2025.3556543">Vehicle-Group-Based Crash Risk Prediction and Interpretation on Highways</a></h3>
+                  <p class="pub__authors"><span class="me">Tianheng Zhu</span>, Ling Wang, Yiheng Feng, Wanjing Ma, and Mohamed Abdel-Aty</p>
+                  <p class="pub__venue"><cite>IEEE Transactions on Intelligent Transportation Systems</cite></p>
+                  <p class="pub__desc">Interaction-aware and interpretable highway crash risk prediction based on vehicle groups.</p>
+                  <ul class="actions"><li><a href="https://doi.org/10.1109/TITS.2025.3556543">Paper</a></li></ul>
+                </div>
+              </li>
+              <li class="pub">
+                <span class="pub__year">2024</span>
+                <div class="pub__main">
+                  <h3 class="pub__title"><a href="https://doi.org/10.1016/j.trc.2024.104860">A Cooperative Perception Based Adaptive Signal Control under Early Deployment of Connected and Automated Vehicles</a></h3>
+                  <p class="pub__authors">Wangzhi Li, <span class="me">Tianheng Zhu</span>, and Yiheng Feng</p>
+                  <p class="pub__venue"><cite>Transportation Research Part C: Emerging Technologies</cite></p>
+                  <p class="pub__desc">An adaptive traffic signal controller that uses cooperative perception data under low CAV penetration rates.</p>
+                  <ul class="actions"><li><a href="https://doi.org/10.1016/j.trc.2024.104860">Paper</a></li></ul>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ============ EXPERIENCE ============ -->
+        <section class="section" id="experience" aria-labelledby="experience-h" data-nav="experience">
+          <h2 class="section__label" id="experience-h">Experience</h2>
+          <div class="section__body">
+            <ol class="entries">
+              <li class="entry">
+                <span class="entry__when">2023 – Now</span>
+                <div>
+                  <h3 class="entry__role">Graduate Research Assistant <span class="entry__org">· Purdue University</span></h3>
+                  <p class="entry__desc">Advised by <a href="https://engineering.purdue.edu/CARTLab/people">Prof. Yiheng Feng</a>.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="section" id="contact" aria-labelledby="contact-h" data-nav="contact">
+          <h2 class="section__label" id="contact-h">Contact</h2>
+          <div class="section__body">
+            <p class="contact__lead">Whether you have a question or we’re working toward a similar goal, I’d love to hear from you.</p>
+            <div class="email">
+              <a class="email__addr" href="mailto:zhu1230@purdue.edu">zhu1230@purdue.edu</a>
+              <button class="copy" type="button" data-copy-text="zhu1230@purdue.edu">Copy</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>© 2026 Tianheng Zhu</span>
+      <span>Updated October 2026</span>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <p class="sr-only" id="announcer" aria-live="polite"></p>
+</body>
+</html>
